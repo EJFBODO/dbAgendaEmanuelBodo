@@ -13,7 +13,7 @@ public class DbAgendaEmanuelBodo {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "ejfb");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "thismeanswar");
 
         } catch (Exception e) {
             System.err.println("Error " + e);
@@ -160,7 +160,7 @@ public class DbAgendaEmanuelBodo {
 
     }
 
-    private static void editar() {
+    private static void editar()  {
         DbAgendaEmanuelBodo mt = new DbAgendaEmanuelBodo();
         Statement st;
         ResultSet rs;
@@ -207,6 +207,8 @@ public class DbAgendaEmanuelBodo {
         }
 
     }
+
+    
 
     private static void eliminar() {
         DbAgendaEmanuelBodo mt = new DbAgendaEmanuelBodo();

@@ -30,7 +30,7 @@ CREATE TABLE `contactos` (
   `email` varchar(60) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`idContactos`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
-INSERT INTO `contactos` VALUES (1,'Gustavo','Gonzalez','1985-12-17','gustavogonzalez@gmail.com','1559873213'),(2,'Matias','Carrizo','1985-03-28','matiascarrizo@gmail.com','1546753211'),(3,'Angel','Vega','1985-10-31','angelvega@yahoo.com','1554315932'),(4,'Jose','Serio','1984-01-28','joseserio@gmail.com','1561974892'),(5,'Jimena','Lopez','1985-08-31','jimenalopez@yahoo.com','1539324213'),(6,'Gustavo','Bodo','1978-05-12','estudiobodo@gmail.com','1556215721'),(7,'Juan','Gutierrez','1984-08-20','juangutierrez@gmail.com','1559781242'),(8,'Guido','Piccione','1985-06-01','guidopiccione@gmail.com','1565438912'),(9,'Leonardo','Godoy','1984-12-05','leogodoy@gmail.com','1521963211'),(10,'Patricia','Bodo','1992-05-07','patobodo@gmail.com','1556531235'),(13,'Juan','Machado','1983-06-06','juanmachado@gmail.com','1545327890');
+INSERT INTO `contactos` VALUES (1,'Gustavo','Gonzalez','1985-12-17','gustavogonzalez@gmail.com','1559873213'),(2,'Matias','Carrizo','1985-03-28','matiascarrizo@gmail.com','1546753211'),(3,'Angel','Vega','1985-10-31','angelvega@yahoo.com','1554315932'),(4,'Jose','Serio','1984-01-28','joseserio@gmail.com','1561974892'),(5,'Jimena','Lopez','1985-08-31','jimenalopez@yahoo.com','1539324213'),(7,'Juan','Gutierrez','1984-08-20','juangutierrez@gmail.com','1559781242'),(8,'Guido','Piccione','1985-06-01','guidopiccione@gmail.com','1565438912'),(9,'Leonardo','Godoy','1984-12-05','leogodoy@gmail.com','1521963211'),(13,'Juan','Machado','1983-06-06','juanmachado@gmail.com','1545327890'),(16,'Patricia','Bodo','1992-05-07','patobodo@gmail.com','1542572145');
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-06 21:19:03
+-- Dump completed on 2021-06-07 10:05:51
