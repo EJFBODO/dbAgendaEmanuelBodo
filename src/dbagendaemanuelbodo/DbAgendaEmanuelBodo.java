@@ -2,6 +2,7 @@ package dbagendaemanuelbodo;
 
 import java.sql.*;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class DbAgendaEmanuelBodo {
 
@@ -13,7 +14,7 @@ public class DbAgendaEmanuelBodo {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "ejfb");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "thismeanswar");
 
         } catch (Exception e) {
             System.err.println("Error " + e);
@@ -77,10 +78,10 @@ public class DbAgendaEmanuelBodo {
 
             st = mt.con.createStatement();
             rs = st.executeQuery("SELECT * FROM contactos");
-            System.out.printf("%15s %-15s %-20s %15s %25s %n", "NOMBRE", "APELLIDO", "FECHA DE NACIMIENTO", "EMAIL", "TELEFONO");
+            System.out.printf("%15s %-15s %-20s %15s %30s %n", "NOMBRE", "APELLIDO", "FECHA DE NACIMIENTO", "EMAIL", "TELEFONO");
 
             while (rs.next()) {
-                System.out.printf("%15s %-15s %-20s %15s %20s %n", rs.getString("nombre"), rs.getString("apellido"), rs.getDate("fechaNacimiento"), rs.getString("email"), rs.getString("telefono"));
+                System.out.printf("%15s %-15s %-20s %25s %20s %n", rs.getString("nombre"), rs.getString("apellido"), rs.getDate("fechaNacimiento"), rs.getString("email"), rs.getString("telefono"));
 
             }
 
@@ -89,7 +90,7 @@ public class DbAgendaEmanuelBodo {
             rs = st.executeQuery(Query);
 
             while (rs.next()) {
-                System.out.println(" Es el cumpleaños de " + rs.getString("nombre") + "  " + rs.getString("apellido"));
+                System.out.println(" Es el cumpleaños de " + rs.getString("nombre") + " " + rs.getString("apellido"));
 
             }
 
@@ -115,7 +116,7 @@ public class DbAgendaEmanuelBodo {
             st = mt.con.createStatement();
             rs = st.executeQuery("SELECT * FROM contactos WHERE nombre like'" + busqueda + "' OR apellido like'" + busqueda + "' OR email Like '" + busqueda + "%'");
             while (rs.next()) {
-                System.out.printf("%-15s %-15s %15s %n", "NOMBRE", "APELLIDO", "EMAIL");
+                System.out.printf("%-15s %-15s %5s %n", "NOMBRE", "APELLIDO", "EMAIL");
                 System.out.printf("%-15s %-15s %15s %n", rs.getString("nombre"), rs.getString("apellido"), rs.getString("email"));
             }
 
@@ -160,7 +161,7 @@ public class DbAgendaEmanuelBodo {
 
     }
 
-    private static void editar()  {
+    private static void editar() {
         DbAgendaEmanuelBodo mt = new DbAgendaEmanuelBodo();
         Statement st;
         ResultSet rs;
@@ -173,7 +174,7 @@ public class DbAgendaEmanuelBodo {
             st = mt.con.createStatement();
             rs = st.executeQuery("SELECT * FROM contactos WHERE apellido like'" + busqueda + "%'");
             while (rs.next()) {
-                System.out.printf("%-15s %-15s %15s %n", "NOMBRE", "APELLIDO", "EMAIL");
+                System.out.printf("%-15s %-15s %5s %n", "NOMBRE", "APELLIDO", "EMAIL");
                 System.out.printf("%-15s %-15s %15s %n", rs.getString("nombre"), rs.getString("apellido"), rs.getString("email"));
             }
 
@@ -201,14 +202,14 @@ public class DbAgendaEmanuelBodo {
                 System.out.println("No se modifico ningun registro");
             }
 
+            mt.con.close();
+
         } catch (SQLException e) {
             System.err.println("Error");
             System.err.println(e.getMessage());
         }
 
     }
-
-    
 
     private static void eliminar() {
         DbAgendaEmanuelBodo mt = new DbAgendaEmanuelBodo();
@@ -222,7 +223,7 @@ public class DbAgendaEmanuelBodo {
             st = mt.con.createStatement();
             rs = st.executeQuery("SELECT * FROM contactos WHERE apellido like'" + busqueda + "%'");
             while (rs.next()) {
-                System.out.printf("%-15s %-15s %15s %n", "NOMBRE", "APELLIDO", "EMAIL");
+                System.out.printf("%-15s %-15s %5s %n", "NOMBRE", "APELLIDO", "EMAIL");
                 System.out.printf("%-15s %-15s %15s %n", rs.getString("nombre"), rs.getString("apellido"), rs.getString("email"));
 
                 System.out.println("Ingresar apellido del contacto a eliminar");
@@ -237,6 +238,8 @@ public class DbAgendaEmanuelBodo {
                 System.out.println("número de contactos eliminados->" + resultCount);
 
             }
+
+            mt.con.close();
 
         } catch (SQLException e) {
             System.out.println(e);
