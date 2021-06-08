@@ -14,7 +14,7 @@ public class DbAgendaEmanuelBodo {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "thismeanswar");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_agenda?serverTimezone=UTC", "root", "ejfbodo");
 
         } catch (Exception e) {
             System.err.println("Error " + e);
